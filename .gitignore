@@ -15,6 +15,12 @@ bin/
 !**/src/main/**/bin/
 !**/src/test/**/bin/
 
+### IntelliJ IDEA ###
+out/
+.idea/
+javacode.iml
+!**/src/main/**/out/
+!**/src/test/**/out/
 # Ignore all .class files
 *.class
 ### NetBeans ###
