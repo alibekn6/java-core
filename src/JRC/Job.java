@@ -3,10 +3,10 @@ package JRC;
 class Job {
     private String title;
     private String description;
-    private String salary;
+    private int salary;
     private Company company;
 
-    public Job (String title, String description, String salary, Company company) {
+    public Job (String title, String description, int salary, Company company) {
         this.title = title;
         this.description = description;
         this.salary = salary;
