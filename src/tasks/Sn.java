@@ -1,33 +1,48 @@
 package tasks;
 
 
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 
 public class Sn {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InvocationTargetException, IllegalAccessException {
         Hero el = new Elf("El", 10_000, 800, 3000, 999);
         Orc or = new Orc("ORCCCC", 10_000, 800, 3000, 999);
         Hero dw = new Dwarf("Dw", 10_000, 800, 3000, 999, 0.8);
 
 
-        el.attack(or);
-        or.attack(el);
-        dw.attack(or);
-        el.attack(dw);
 
-        or.useDefence();
+        Hero hero = new Hero("OR", 10_000, 800, 3000, 999) {
+            public void move() {
+                System.out.println("Hero is running mf");
+            }
+        };
 
-
-
-        System.out.println(el.getHealth());
-        System.out.println(or.getHealth());
-        System.out.println(dw.getHealth());
+        for (Method m : hero.getClass().getDeclaredMethods()) {
+            if (m.getName().equals("move")) {
+                m.invoke(hero);
+            }
+        }
+//
+//        el.attack(or);
+//        or.attack(el);
+//        dw.attack(or);
+//        el.attack(dw);
+//
+//        or.useDefence();
+//
+//
+//
+//        System.out.println(el.getHealth());
+//        System.out.println(or.getHealth());
+//        System.out.println(dw.getHealth());
 
     }
 }
 
 
-class Hero {
+abstract class Hero {
     private String name;
     private int health;
     private int power;
