@@ -13,17 +13,17 @@ public class Sn {
 
 
 
-        Hero hero = new Hero("OR", 10_000, 800, 3000, 999) {
-            public void move() {
-                System.out.println("Hero is running mf");
+        Hero hero = new Hero("Kuzya", 10_000, 800, 3000, 999) {
+            @Override
+            public void attack(Hero enemy) {
+                enemy.takeDamage(getPower() * 2);
+            }
+            @Override
+            public void speak() {
+                System.out.println("Im a hero HAHAHAHA LOL");
             }
         };
 
-        for (Method m : hero.getClass().getDeclaredMethods()) {
-            if (m.getName().equals("move")) {
-                m.invoke(hero);
-            }
-        }
 //
 //        el.attack(or);
 //        or.attack(el);
@@ -56,6 +56,17 @@ abstract class Hero {
         this.armor = armor;
         this.level = level;
     }
+
+    public abstract void speak();
+
+    public void takeDamage(int damage) {
+        health -= damage;
+    }
+
+    public void attack(Hero enemy) {
+        enemy.takeDamage(getPower());
+    }
+
 
     public String getName() {
         return this.name;
@@ -96,19 +107,6 @@ abstract class Hero {
     public void setLevel(int level) {
         this.level = level;
     }
-
-
-    public void takeDamage(int damage) {
-        health -= damage;
-    }
-
-    public void attack(Hero enemy) {
-        enemy.takeDamage(getPower());
-    }
-
-
-
-
 }
 
 
@@ -132,18 +130,29 @@ class Dwarf extends Hero {
         }
     }
 
+    @Override
+    public void speak() {
+        System.out.println("Nil om di popa Dwarfi di sena miagritus ji hanukoiw");
+    }
+
 
     private static void between0and100(double blockChance) {
         if (blockChance < 0 || blockChance > 100) {
             throw new IllegalArgumentException("Only between 0 and 100");
         }
-
     }
+
+
 }
 
 class Elf extends Hero {
     public Elf(String name, int health, int power, int armor, int level) {
         super(name, health, power, armor, level);
+    }
+
+    @Override
+    public void speak() {
+        System.out.println("Elfo merio hajo miagritus ji eduno siakma");
     }
 }
 
@@ -152,6 +161,11 @@ class Orc extends Hero {
     public Orc(String name, int health, int power, int armor, int level) {
         super(name, health, power, armor, level);
         defenceActive = false;
+    }
+
+    @Override
+    public void speak() {
+        System.out.println("Ajomitu de Orc motiso hajo di refejio he");
     }
 
     public void useDefence() {

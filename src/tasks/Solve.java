@@ -1,20 +1,49 @@
 package tasks;
 
-
-
 public class Solve {
 
-    static void printArr(int[] n) {
-        for (int i = 0; i < n.length; i++) {
-            System.out.println(n[i]);
-        }
+    public static void main(String[] args) {
+        Person p1 = new Person("Nameme");
+        p1.print();
+        p1.sex();
+    }
+}
+
+
+class Person implements Info {
+    private final String name;
+
+    public Person(String name) {
+        this.name = name;
+    }
+
+    public void print() {
+        System.out.println("Hello im person " + name);
+    }
+
+    public void sex() {
+        System.out.println("I can sex");
     }
 
 
-    public static void a() {
-        int[] numbers = {1,2,3,4,5};
-        printArr(numbers);
+}
 
+class Animal implements Info {
+    private final int id;
+
+    public Animal(int id) {
+        this.id = id;
     }
+
+    public void print() {
+        System.out.println("Mu mu i am animal hehe " + id);
+    }
+}
+
+
+
+
+interface Info {
+    public void print();
 }
 
