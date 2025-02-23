@@ -2,7 +2,13 @@ package newPackage;
 
 import java.time.LocalDate;
 import java.lang.IllegalArgumentException;
+import java.util.ArrayList;
 import java.util.UUID;
+import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+import java.util.stream.Stream;
+
 
 public class Main {
     public static void main(String[] args) {
@@ -97,14 +103,32 @@ abstract class LibraryItem implements Borrowable, Reservable {
         this.reservedBy = user;
     }
 
-
-
-
 }
 
 
 class User {
+    private final String name;
+    private final String id;
+    private final List<LibraryItem> borrowedItems;
+    private double fines;
 
+    User(String name) {
+        this.name = name;
+        this.id = UUID.randomUUID().toString();
+        this.borrowedItems = new ArrayList<>();
+        this.fines = 0.0;
+    }
+
+    void borrowItem(LibraryItem item) {
+        item.borrow(this);
+        borrowedItems.add(item);
+    }
+
+    void returnItem(LibraryItem item) {
+       item.returnItem();
+        borrowedItems.remove(item);
+
+    }
 }
 
 
@@ -116,6 +140,20 @@ class User {
 //    private String author;
 //    private String ISBN;
 //}
+//
+
+
+
+//27. Write a Java program to create a class called "CustomerOrder" with attributes for order ID, customer,
+// and order date.
+// Create a subclass "OnlineOrder" that adds attributes for delivery address and tracking number.
+// Implement methods to calculate delivery time based on the address and update the tracking status.
+//
+//
+
+
+
+
 
 
 
