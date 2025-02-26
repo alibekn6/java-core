@@ -3,12 +3,6 @@ import java.time.Period;
 
 public class Main {
     public static void main(String[] args) {
-        System.out.println(User.USER_MIN_AGE);
-
-        Seq.executeStaticMethod();
-
-        User user = new User(LocalDate.of(2009, 1, 15));
-        System.out.println(user.birthDate);
 
     }
 }

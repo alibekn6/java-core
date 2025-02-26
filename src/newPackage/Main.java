@@ -32,16 +32,12 @@ interface Reservable {
     boolean isReserved();
 }
 
-
-
 interface Borrowable {
     void borrow(User user);
     void returnItem();
     boolean isAvailable();
     double calculateFine();
 }
-
-
 
 abstract class LibraryItem implements Borrowable, Reservable {
     private final String title;
@@ -85,7 +81,6 @@ abstract class LibraryItem implements Borrowable, Reservable {
 
         this.borrowDate = null;
         this.borrowedBy = null;
-
         this.status = ItemStatus.AVAILABLE;
     }
 
