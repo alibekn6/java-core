@@ -8,6 +8,22 @@ public class Main {
 
 
 
+
+
+    }
+
+
+
+
+
+}
+
+interface Animal {
+    void eat();
+}
+
+class shit {
+    public static void main(String[] args) {
         long startTime = System.nanoTime();
 
         //code
@@ -43,6 +59,7 @@ public class Main {
 
 
 
+
         long endTime2 = System.nanoTime();
 
         long elapsedTime2 = endTime2 - startTime2;
@@ -57,17 +74,7 @@ public class Main {
         System.out.println(vector.elementAt(0));
 
 
-
     }
-
-
-
-
-
-}
-
-interface Animal {
-    void eat();
 }
 
 abstract class MainAnimal {
