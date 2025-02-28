@@ -3,7 +3,7 @@ package Collections;
 import java.util.Arrays;
 
 public class Setik {
-    private int DEFAULT_SIZE = 5;
+    private int DEFAULT_SIZE = 20;
     private int size = 0;
     private String[] set;
 
@@ -15,6 +15,7 @@ public class Setik {
     public Setik() {
         this.set = new String[DEFAULT_SIZE];
     }
+    // 265
 
 
     public boolean add(String element) {
@@ -103,6 +104,8 @@ public class Setik {
 
         setik.print();
         System.out.println(setik.size());
+
+
     }
 
 

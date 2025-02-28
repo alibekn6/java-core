@@ -1,43 +1,50 @@
 package Collections;
 
-import Collections.Setik;
+
 import java.util.*;
 
 public class Main {
     public static void main(String[] args) throws Exception {
-        String[] arr = new String[10];
-        arr[0] = "a";
-        arr[1] = "b";
-        arr[2] = "c";
-        arr[3] = "d";
-        arr[4] = "e";
 
-        String toBeAdded = "b";
+        LinkedHashSet<Integer> set1 = new LinkedHashSet<>();
+        HashSet<Integer> set2 = new HashSet<>();
 
-        boolean alreadyExists = false;
-        for (String s : arr) {
-            if (s == null) {
-                break;
-            }
-            if (s.equals(toBeAdded)) {
-                alreadyExists = true;
-                break;
-            }
-        }
 
-        if (!alreadyExists) {
-            for (int i = 0; i < arr.length; i++) {
-                if (arr[i] == null) {
-                    arr[i] = toBeAdded;
-                    break;
-                }
-            }
+        // adding
+        long startTime = System.nanoTime();
+        for (int i = 0; i < 1000; i++) {
+            set1.add(i);
         }
 
 
 
+//        System.out.println(set1);
 
-        print(arr);
+        long endTime = System.nanoTime();
+        long elapsedTime = endTime - startTime;
+        double elapsedTimeInMillis = elapsedTime / 1_000_000.0;
+        System.out.println("Time spent on LinkedHashSet " + (elapsedTimeInMillis) );
+
+
+        long startTime2 = System.nanoTime();
+
+        for (int i = 0; i < 1000; i++) {
+            set2.add(i);
+        }
+
+        // adding to hashset is faster
+        //
+//        System.out.println(set2);
+
+
+        long endTime2 = System.nanoTime();
+        long elapsedTime2 = endTime2 - startTime2;
+        double elapsedTimeInMillis2 = elapsedTime2 / 1_000_000.0;
+        System.out.println("Time spent on HashSet " + (elapsedTimeInMillis2) );
+
+
+
+
 
     }
 
