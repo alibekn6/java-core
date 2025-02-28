@@ -12,8 +12,6 @@ public class Main {
         arr[3] = "d";
         arr[4] = "e";
 
-        ArrayList
-
         String toBeAdded = "b";
 
         boolean alreadyExists = false;
