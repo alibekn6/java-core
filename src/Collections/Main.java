@@ -6,46 +6,13 @@ import java.util.*;
 public class Main {
     public static void main(String[] args) throws Exception {
 
-        LinkedHashSet<Integer> set1 = new LinkedHashSet<>();
         HashSet<Integer> set2 = new HashSet<>();
 
-
-        // adding
-        long startTime = System.nanoTime();
-        for (int i = 0; i < 1000; i++) {
-            set1.add(i);
-        }
-
-
-
-//        System.out.println(set1);
-
-        long endTime = System.nanoTime();
-        long elapsedTime = endTime - startTime;
-        double elapsedTimeInMillis = elapsedTime / 1_000_000.0;
-        System.out.println("Time spent on LinkedHashSet " + (elapsedTimeInMillis) );
-
-
-        long startTime2 = System.nanoTime();
-
-        for (int i = 0; i < 1000; i++) {
+        for (int i = 0; i < 100; i++) {
             set2.add(i);
         }
 
-        // adding to hashset is faster
-        //
-//        System.out.println(set2);
-
-
-        long endTime2 = System.nanoTime();
-        long elapsedTime2 = endTime2 - startTime2;
-        double elapsedTimeInMillis2 = elapsedTime2 / 1_000_000.0;
-        System.out.println("Time spent on HashSet " + (elapsedTimeInMillis2) );
-
-
-
-
-
+        System.out.println(set2);
     }
 
     public static void print(String[] array) {
