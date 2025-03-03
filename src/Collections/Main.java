@@ -12,7 +12,7 @@ public class Main {
             set2.add(i);
         }
 
-        System.out.println(set2);
+        System.out.println(set2[0]);
     }
 
     public static void print(String[] array) {
