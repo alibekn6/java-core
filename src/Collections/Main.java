@@ -1,18 +1,24 @@
 package Collections;
 
-
+import java.io.*;
 import java.util.*;
 
 public class Main {
     public static void main(String[] args) throws Exception {
+            try {
+                divide(50, 0);
+            }
+            catch (ArithmeticException e) {
 
-        HashSet<Integer> set2 = new HashSet<>();
+                System.out.println("Message String = " + e.getMessage());
+            } finally {
+                System.out.println("Message String = " + new Date().hashCode());
+            }
+    }
 
-        for (int i = 0; i < 100; i++) {
-            set2.add(i);
-        }
-
-        System.out.println(set2[0]);
+    public static void divide(int a, int b) throws ArithmeticException {
+        int c = a / b;
+        System.out.println("Result:" + c);
     }
 
     public static void print(String[] array) {
