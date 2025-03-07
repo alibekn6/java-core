@@ -6,8 +6,19 @@ import java.io.IOException;
 
 public class Main {
     public static void main(String[] args) {
-        long x = recursiveMethod(19);
-        System.out.println(x);
+        error();
+    }
+
+
+    static void error() {
+        try {
+            int[] arr = {1,2,3,4};
+            System.out.println(arr[5]);
+        } catch (Error e) {
+            System.out.println(e.getMessage());
+        } finally {
+            System.out.println("This block is always executed.");
+        }
     }
 
 
