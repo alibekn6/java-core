@@ -17,12 +17,5 @@ public class Main {
         list.add(6);
         list.add(7);
 
-
-        Collections.sort(list, new Comparator<Integer>() {
-            @Override
-            public int compare(Integer o1, Integer o2) {
-
-            }
-        })
     }
 }
