@@ -6,16 +6,21 @@ import java.io.IOException;
 
 public class Main {
     public static void main(String[] args) {
-        error();
+        try {
+            BankAccount myBank = new BankAccount(100.0);
+            myBank.withdraw(120);
+        } catch (InsufficientFundsException e) {
+            System.out.println("-?>>>>>> ?????? " + e.getMessage());
+            e.printStackTrace();
+        }
     }
-
 
     static void error() {
         try {
             int[] arr = {1,2,3,4};
             System.out.println(arr[5]);
-        } catch (Error e) {
-            System.out.println(e.getMessage());
+        } catch (RuntimeException e) {
+            System.out.println("---------->>>>" + e.getMessage());
         } finally {
             System.out.println("This block is always executed.");
         }
@@ -55,3 +60,34 @@ public class Main {
         }
     }
 }
+
+
+class InsufficientFundsException extends Exception {
+    public InsufficientFundsException(String message) {
+        super(message);
+    }
+}
+
+class BankAccount {
+    private double balance;
+
+    BankAccount(double balance) {
+        this.balance = balance;
+    }
+
+    void withdraw(double amount) throws InsufficientFundsException {
+        if (amount > balance) {
+            throw new InsufficientFundsException("Insufficient amount of money for withdrawal");
+        }
+        balance -= amount;
+    }
+}
+
+
+
+//
+//public class InsufficientFundsException extends Exception {
+//    public InsufficientFundsException(String message) {
+//        super(message);
+//    }
+//}
