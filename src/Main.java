@@ -5,7 +5,6 @@ public class Main {
     public static void main(String[] args) {
         StringBuffer demoString = new StringBuffer("String buffer");
         System.out.println(demoString.append("efef").toString());
-        System.out.println(t);
 
     }
 }
