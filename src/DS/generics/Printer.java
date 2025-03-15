@@ -1,6 +1,8 @@
 package DS.generics;
 
-public class Printer<T extends Animal> {
+import java.io.Serializable;
+
+public class Printer<T extends Animal & Serializable> {
     T toPrint;
     public Printer(T toPrint) {
         this.toPrint = toPrint;
